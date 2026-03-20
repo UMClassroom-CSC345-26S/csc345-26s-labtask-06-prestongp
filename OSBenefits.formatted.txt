@@ -1,0 +1,37 @@
+fof(only_operating_systems, axiom,
+    ![X] : (os(X) => (X = linux | X = windows | X = osx))
+).
+
+fof(distinct_operating_systems, axiom,
+    linux != windows &
+    linux != osx &
+    windows != osx
+).
+
+fof(distinct_origins, axiom,
+    unix != dos
+).
+
+fof(os_origins, axiom,
+    origin(linux, unix) &
+    origin(osx, unix) &
+    origin(windows, dos)
+).
+
+fof(computers_have_os, axiom,
+    ![C] : (computer(C) => ?[O] : (os(O) & has_os(C,O)))
+).
+
+fof(benefit_rule, axiom,
+    ![C,O,Or] :
+      ((computer(C) & has_os(C,O) & origin(O,Or))
+       => benefits_from(C,Or))
+).
+
+fof(my_computer_is_computer, axiom,
+    computer(my_pc)
+).
+
+fof(my_computer_runs_osx, axiom,
+    has_os(my_pc, osx)
+).

@@ -1,0 +1,12 @@
+tff(os_type, type, os: $i > $o).
+tff(computer_type, type, computer: $i > $o).
+tff(origin_type, type, origin: ($i * $i) > $o).
+tff(has_os_type, type, has_os: ($i * $i) > $o).
+tff(benefits_type, type, benefits_from: ($i * $i) > $o).
+
+tff(linux_decl, type, linux: $i).
+tff(windows_decl, type, windows: $i).
+tff(osx_decl, type, osx: $i).
+tff(unix_decl, type, unix: $i).
+tff(dos_decl, type, dos: $i).
+tff(my_pc_decl, type, my_pc: $i).

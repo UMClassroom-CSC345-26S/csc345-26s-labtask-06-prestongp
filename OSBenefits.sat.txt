@@ -1,0 +1,86 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+Paradox, version 4.0, 2010-06-29.
++++ PROBLEM: /tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short
+Reading '/tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short' ... OK
++++ SOLVING: /tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short
++++ BEGIN MODEL
+SZS output start FiniteModel for /tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short
+% domain size is 3
+fof(domain, fi_domain,
+  (![X] : (X = "1" | X = "2" | X = "3"))
+).
+
+fof(benefits_from, fi_predicates,
+  ( ![X1,X2] : (benefits_from(X1,X2) <=> $true)
+  )
+).
+
+fof(computer, fi_predicates,
+  ( (computer("1") <=> $true)
+  & (computer("2") <=> computer("1"))
+  & (computer("3") <=> computer("2"))
+  )
+).
+
+fof(dos, fi_functors,
+  ( (dos = "1")
+  )
+).
+
+fof(has_os, fi_predicates,
+  ( ![X1,X2] : (has_os(X1,X2) <=> $true)
+  )
+).
+
+fof(linux, fi_functors,
+  ( (linux = "2")
+  )
+).
+
+fof(my_pc, fi_functors,
+  ( (my_pc = "1")
+  )
+).
+
+fof(origin, fi_predicates,
+  ( ![X1,X2] : (origin(X1,X2) <=> $true)
+  )
+).
+
+fof(os, fi_predicates,
+  ( (os("1") <=> $false)
+  & (os("2") <=> $true)
+  & (os("3") <=> $false)
+  )
+).
+
+fof(osx, fi_functors,
+  ( (osx = "1")
+  )
+).
+
+fof(sK1_computers_have_os_O, fi_functors,
+  ( (sK1_computers_have_os_O("1") = "2")
+  & (sK1_computers_have_os_O("2") = sK1_computers_have_os_O("1"))
+  & (sK1_computers_have_os_O("3") = sK1_computers_have_os_O("2"))
+  )
+).
+
+fof(unix, fi_functors,
+  ( (unix = "2")
+  )
+).
+
+fof(windows, fi_functors,
+  ( (windows = "3")
+  )
+).
+SZS output end FiniteModel for /tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short
++++ END MODEL
++++ RESULT: Satisfiable
+SZS status Satisfiable for /tmp/SystemOnTPTP557676/SOT_x_IR16.tptp:short
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_x_IR16 - Paradox---4.0 says Satisfiable - CPU = 0.00 WC = 0.01  Size = 3
+% OUTPUT: SOT_x_IR16 - Paradox---4.0 says FiniteModel - CPU = 0.00 WC = 0.01 

@@ -1,0 +1,211 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+Running first-order theorem proving
+Running: /home/tptp/Systems/E---3.3.0/eprover --delete-bad-limit=2000000000 --definitional-cnf=24 -s --print-statistics -R --print-version --proof-object --auto-schedule=8 --cpu-limit=60 /tmp/GvWNaFxUJG/SOT_BHBA7e
+# Version: 3.0.0
+# Preprocessing class: FSSSSMSSSSSNFFN.
+# Scheduled 4 strats onto 8 cores with 60 seconds (480 total)
+# Starting G-E--_302_C18_F1_URBAN_RG_S04BN with 300s (5) cores
+# Starting new_bool_3 with 60s (1) cores
+# Starting new_bool_1 with 60s (1) cores
+# Starting sh5l with 60s (1) cores
+# new_bool_3 with pid 542699 completed with status 0
+# Result found by new_bool_3
+# Preprocessing class: FSSSSMSSSSSNFFN.
+# Scheduled 4 strats onto 8 cores with 60 seconds (480 total)
+# Starting G-E--_302_C18_F1_URBAN_RG_S04BN with 300s (5) cores
+# Starting new_bool_3 with 60s (1) cores
+# SinE strategy is GSinE(CountFormulas,hypos,1.5,,3,20000,1.0)
+# Search class: FGUSF-FFSS11-SFFFFFNN
+# partial match(1): FGHSF-FFSS11-SFFFFFNN
+# Scheduled 5 strats onto 1 cores with 60 seconds (60 total)
+# Starting SAT001_MinMin_p005000_rr_RG with 37s (1) cores
+# SAT001_MinMin_p005000_rr_RG with pid 542706 completed with status 0
+# Result found by SAT001_MinMin_p005000_rr_RG
+# Preprocessing class: FSSSSMSSSSSNFFN.
+# Scheduled 4 strats onto 8 cores with 60 seconds (480 total)
+# Starting G-E--_302_C18_F1_URBAN_RG_S04BN with 300s (5) cores
+# Starting new_bool_3 with 60s (1) cores
+# SinE strategy is GSinE(CountFormulas,hypos,1.5,,3,20000,1.0)
+# Search class: FGUSF-FFSS11-SFFFFFNN
+# partial match(1): FGHSF-FFSS11-SFFFFFNN
+# Scheduled 5 strats onto 1 cores with 60 seconds (60 total)
+# Starting SAT001_MinMin_p005000_rr_RG with 37s (1) cores
+# Preprocessing time       : 0.002 s
+# Presaturation interreduction done
+
+# Proof found!
+# SZS status Theorem
+# SZS output start CNFRefutation
+fof(conjecture, conjecture, benefits_from(my_pc,unix), file('/tmp/GvWNaFxUJG/SOT_BHBA7e', conjecture)).
+fof(benefit_rule, axiom, ![X2, X3, X4]:((((computer(X2)&has_os(X2,X3))&origin(X3,X4))=>benefits_from(X2,X4))), file('/tmp/GvWNaFxUJG/SOT_BHBA7e', benefit_rule)).
+fof(my_computer_runs_osx, axiom, has_os(my_pc,osx), file('/tmp/GvWNaFxUJG/SOT_BHBA7e', my_computer_runs_osx)).
+fof(my_computer_is_computer, axiom, computer(my_pc), file('/tmp/GvWNaFxUJG/SOT_BHBA7e', my_computer_is_computer)).
+fof(os_origins, axiom, ((origin(linux,unix)&origin(osx,unix))&origin(windows,dos)), file('/tmp/GvWNaFxUJG/SOT_BHBA7e', os_origins)).
+fof(c_0_5, negated_conjecture, ~benefits_from(my_pc,unix), inference(fof_simplification,[status(thm)],[inference(assume_negation,[status(cth)],[conjecture])])).
+fof(c_0_6, plain, ![X5, X6, X7]:((~computer(X5)|~has_os(X5,X6)|~origin(X6,X7)|benefits_from(X5,X7))), inference(fof_nnf,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[benefit_rule])])])).
+fof(c_0_7, negated_conjecture, ~benefits_from(my_pc,unix), inference(fof_nnf,[status(thm)],[c_0_5])).
+cnf(c_0_8, plain, (benefits_from(X1,X3)|~computer(X1)|~has_os(X1,X2)|~origin(X2,X3)), inference(split_conjunct,[status(thm)],[c_0_6])).
+cnf(c_0_9, plain, (has_os(my_pc,osx)), inference(split_conjunct,[status(thm)],[my_computer_runs_osx])).
+cnf(c_0_10, plain, (computer(my_pc)), inference(split_conjunct,[status(thm)],[my_computer_is_computer])).
+cnf(c_0_11, negated_conjecture, (~benefits_from(my_pc,unix)), inference(split_conjunct,[status(thm)],[c_0_7])).
+cnf(c_0_12, plain, (benefits_from(my_pc,X1)|~origin(osx,X1)), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_8, c_0_9]), c_0_10])])).
+cnf(c_0_13, plain, (origin(osx,unix)), inference(split_conjunct,[status(thm)],[os_origins])).
+cnf(c_0_14, negated_conjecture, ($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_11, c_0_12]), c_0_13])]), ['proof']).
+# SZS output end CNFRefutation
+# Parsed axioms                        : 9
+# Removed by relevancy pruning/SinE    : 0
+# Initial clauses                      : 14
+# Removed in clause preprocessing      : 0
+# Initial clauses in saturation        : 14
+# Processed clauses                    : 29
+# ...of these trivial                  : 0
+# ...subsumed                          : 0
+# ...remaining for further processing  : 29
+# Other redundant clauses eliminated   : 0
+# Clauses deleted for lack of memory   : 0
+# Backward-subsumed                    : 0
+# Backward-rewritten                   : 0
+# Generated clauses                    : 4
+# ...of the previous two non-redundant : 3
+# ...aggressively subsumed             : 0
+# Contextual simplify-reflections      : 0
+# Paramodulations                      : 4
+# Factorizations                       : 0
+# NegExts                              : 0
+# Equation resolutions                 : 0
+# Disequality decompositions           : 0
+# Total rewrite steps                  : 2
+# ...of those cached                   : 0
+# Propositional unsat checks           : 0
+#    Propositional check models        : 0
+#    Propositional check unsatisfiable : 0
+#    Propositional clauses             : 0
+#    Propositional clauses after purity: 0
+#    Propositional unsat core size     : 0
+#    Propositional preprocessing time  : 0.000
+#    Propositional encoding time       : 0.000
+#    Propositional solver time         : 0.000
+#    Success case prop preproc time    : 0.000
+#    Success case prop encoding time   : 0.000
+#    Success case prop solver time     : 0.000
+# Current number of processed clauses  : 15
+#    Positive orientable unit clauses  : 5
+#    Positive unorientable unit clauses: 0
+#    Negative unit clauses             : 5
+#    Non-unit-clauses                  : 5
+# Current number of unprocessed clauses: 2
+# ...number of literals in the above   : 7
+# Current number of archived formulas  : 0
+# Current number of archived clauses   : 14
+# Clause-clause subsumption calls (NU) : 2
+# Rec. Clause-clause subsumption calls : 2
+# Non-unit clause-clause subsumptions  : 0
+# Unit Clause-clause subsumption calls : 1
+# Rewrite failures with RHS unbound    : 0
+# BW rewrite match attempts            : 0
+# BW rewrite match successes           : 0
+# Condensation attempts                : 0
+# Condensation successes               : 0
+# Termbank termtop insertions          : 589
+# Search garbage collected termcells   : 80
+
+# -------------------------------------------------
+# User time                : 0.003 s
+# System time              : 0.004 s
+# Total time               : 0.007 s
+# Maximum resident set size: 3588 pages
+
+# -------------------------------------------------
+# User time                : 0.004 s
+# System time              : 0.012 s
+# Total time               : 0.016 s
+# Maximum resident set size: 4608 pages
+% E exiting
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_BHBA7e - E---3.3.0 says Theorem - CPU = 0.01 WC = 0.07 
+% OUTPUT: SOT_BHBA7e - E---3.3.0 says CNFRefutation - CPU = 0.01 WC = 0.07 
+% START OF SYSTEM OUTPUT
+Running first-order theorem proving
+Running: /home/tptp/Systems/Vampire---5.0/vampire --mode casc -m 16384 --cores 7 -t 60 /tmp/GvWNaFxUJG/SOT_BHBA7e
+% (542806)Running in auto input_syntax mode. Trying TPTP
+% (542806)Detected formulas, will run a generic FOF schedule.
+% (542817)dis+1011_1_slsqr=8,1:sil=2000:spb=units:fd=off:kmz=on:flr=on:sac=on:slsq=on:random_seed=3447252567:st=2:i=121:sd=30:aac=none:ep=RS:ss=axioms:sgt=10_1 on SOT_BHBA7e for (1ds/121Mi)
+% (542813)lrs+10_1_sp=unary_first:urr=on:s2agt=32:random_seed=2074182955:s2a=on:i=272356:sd=1:bd=all:ss=included_599 on SOT_BHBA7e for (599ds/272356Mi)
+% (542812)dis+1010_16_tgt=full:drc=ordering:sp=reverse_frequency:nwc=1:random_seed=3039134539:i=261632:kws=inv_arity_squared:ins=1:av=off:fsd=on_599 on SOT_BHBA7e for (599ds/261632Mi)
+% (542815)lrs+10_2:3_to=lpo:sil=16000:sp=arity:random_seed=4276208557:i=114:bd=all:ss=axioms:sgt=4_1 on SOT_BHBA7e for (1ds/114Mi)
+% (542817)Also succeeded, but the first one will report.
+% (542813)First to succeed.
+% (542815)Also succeeded, but the first one will report.
+% (542811)lrs+1011_1_sp=occurrence:random_seed=2971934518:st=6:sd=4:ss=included_599 on SOT_BHBA7e for (599ds/0Mi)
+% (542816)ott+1011_2_sil=4000:lsd=20:rnwc=on:rp=on:sac=on:newcnf=on:random_seed=790080484:i=132:kws=arity:er=filter_1 on SOT_BHBA7e for (1ds/132Mi)
+% (542813)Solution written to "/tmp/tmp.StuUsLmU1Z/vampire-proof-542806"
+% (542812)Also succeeded, but the first one will report.
+% (542814)lrs+1011_32_sil=2000:tgt=full:alpa=true:random_seed=3381225638:st=5:i=107:sd=1:ss=included:er=filter_1 on SOT_BHBA7e for (1ds/107Mi)
+% (542816)Also succeeded, but the first one will report.
+% (542811)Also succeeded, but the first one will report.
+% (542813)Refutation found. Thanks to Tanya!
+% SZS status Theorem for SOT_BHBA7e
+% SZS output start Proof for SOT_BHBA7e
+fof(f4,axiom,(
+  origin(linux,unix) & origin(osx,unix) & origin(windows,dos)),
+  file('/tmp/GvWNaFxUJG/SOT_BHBA7e',unknown)).
+fof(f6,axiom,(
+  ! [X0,X1,X2] : ((computer(X0) & has_os(X0,X1) & origin(X1,X2)) => benefits_from(X0,X2))),
+  file('/tmp/GvWNaFxUJG/SOT_BHBA7e',unknown)).
+fof(f7,axiom,(
+  computer(my_pc)),
+  file('/tmp/GvWNaFxUJG/SOT_BHBA7e',unknown)).
+fof(f8,axiom,(
+  has_os(my_pc,osx)),
+  file('/tmp/GvWNaFxUJG/SOT_BHBA7e',unknown)).
+fof(f9,conjecture,(
+  benefits_from(my_pc,unix)),
+  file('/tmp/GvWNaFxUJG/SOT_BHBA7e',unknown)).
+fof(f10,negated_conjecture,(
+  ~benefits_from(my_pc,unix)),
+  inference(negated_conjecture,[status(cth)],[f9])).
+fof(f11,plain,(
+  ~benefits_from(my_pc,unix)),
+  inference(flattening,[],[f10])).
+fof(f15,plain,(
+  ! [X0,X1,X2] : (benefits_from(X0,X2) | (~computer(X0) | ~has_os(X0,X1) | ~origin(X1,X2)))),
+  inference(ennf_transformation,[],[f6])).
+fof(f16,plain,(
+  ! [X0,X1,X2] : (benefits_from(X0,X2) | ~computer(X0) | ~has_os(X0,X1) | ~origin(X1,X2))),
+  inference(flattening,[],[f15])).
+fof(f25,plain,(
+  origin(osx,unix)),
+  inference(cnf_transformation,[],[f4])).
+fof(f29,plain,(
+  ( ! [X2,X0,X1] : (~has_os(X0,X1) | ~computer(X0) | benefits_from(X0,X2) | ~origin(X1,X2)) )),
+  inference(cnf_transformation,[],[f16])).
+fof(f30,plain,(
+  computer(my_pc)),
+  inference(cnf_transformation,[],[f7])).
+fof(f31,plain,(
+  has_os(my_pc,osx)),
+  inference(cnf_transformation,[],[f8])).
+fof(f32,plain,(
+  ~benefits_from(my_pc,unix)),
+  inference(cnf_transformation,[],[f11])).
+fof(f38,plain,(
+  $false),
+  inference(unit_resulting_resolution,[],[f25,f32,f30,f31,f29])).
+% SZS output end Proof for SOT_BHBA7e
+% (542813)------------------------------
+% (542813)Version: Vampire 5.0.1 (commit 44a2ec420 on 2026-02-23 17:05:19 +0100)
+% (542813)Linked with Z3 4.14.0.0 3c47fd96cf5645d0c42b2c819d9e9a84380aa721 z3-4.8.4-9178-g3c47fd96c
+% (542813)CaDiCaL version: 2.1.3-f13d744
+% (542813)Termination reason: Refutation
+% (542813)Time elapsed: 0.002 s
+% (542813)Peak memory usage: 12 MB
+% (542813)------------------------------
+% (542813)------------------------------
+% (542806)Success in time 0.066 s
+% Vampire exiting
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_BHBA7e - Vampire---5.0 says Theorem - CPU = 0.00 WC = 0.10 
+% OUTPUT: SOT_BHBA7e - Vampire---5.0 says Refutation - CPU = 0.00 WC = 0.10 

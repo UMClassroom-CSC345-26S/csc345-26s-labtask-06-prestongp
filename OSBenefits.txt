@@ -1,0 +1,41 @@
+fof(only_os, axiom,
+    ![X] : (os(X) -> (X = linux | X = windows | X = osx))
+).
+
+fof(all_different, axiom,
+    linux != windows &
+    linux != osx &
+    windows != osx
+).
+
+fof(origins_different, axiom,
+    unix != dos
+).
+
+fof(origins_assignment, axiom,
+    origin(linux, unix) &
+    origin(osx, unix) &
+    origin(windows, dos)
+).
+
+fof(computer_has_os, axiom,
+    ![C] : (computer(C) -> ?[O] : (os(O) & has_os(C, O)))
+).
+
+fof(benefit_from_origin, axiom,
+    ![C,O,Or] :
+      ((computer(C) & has_os(C,O) & origin(O,Or))
+       -> benefits_from(C,Or))
+).
+
+fof(my_computer, axiom,
+    computer(my_pc)
+).
+
+fof(my_os, axiom,
+    has_os(my_pc, osx)
+).
+
+fof(goal, conjecture,
+    benefits_from(my_pc, unix)
+).
